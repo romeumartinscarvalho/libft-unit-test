@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_test_result.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created  2015/11/13 20:26:54 by alelievr          #+#    #+#             */
-/*   Updated  2015/12/23 20:28:34 by alelievr         ###   ########.fr       */
+/*   Created: 2015/11/13 20:26:54 by alelievr          #+#    #+#             */
+/*   Updated: 2021/01/14 00:05:07 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -619,11 +619,11 @@ void    display_test_result(int value, char *explanations)
 			}
 			break ;
 		case TEST_PROT:
-			if (current_protected != INVISIBLE && first) {
+			//if (current_protected != INVISIBLE && first) {
 				printf("%s] %s", (current_protected == PROTECTED) ? COLOR_PROTECTED"[\U0001F6E1 ": COLOR_NPROTECTED"[\U0001F4A5 ", COLOR_CLEAR);
 				dprintf(g_log_fd, "%s", (current_protected == PROTECTED) ? "{protected}" : "{not protected}");
-				first = 0;
-			}
+			//	first = 0;
+			//}
 			break ;
 		case TEST_SPEED:
 			if (g_time.state == INVISIBLE)

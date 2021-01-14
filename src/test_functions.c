@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2020/07/03 15:35:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/14 00:07:04 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -3901,6 +3901,24 @@ void			test_ft_strnstr_null2(void *ptr) {
 			);
 }
 
+void			test_ft_strnstr_romeu(void *ptr) {
+	typeof(strnstr)	*ft_strnstr = ptr;
+	SET_EXPLANATION("your strnstr does not stop at len");
+
+	SANDBOX_RAISE(
+			char	*s1 = "lorem ipsum dolor sit amet";
+			char	*s2 = "dolor";
+			size_t	max = 15;
+
+			char	*i1 = strnstr(s1, s2, max);
+			char	*i2 = ft_strnstr(s1, s2, max);
+			if (i1 == i2)
+				exit(TEST_SUCCESS);
+			SET_DIFF(i1, i2);
+			exit(TEST_FAILED);
+			);
+}
+
 void			test_ft_strnstr_speed(void *ptr) {
 	typeof(strnstr)	*ft_strnstr = ptr;
 
@@ -3933,6 +3951,7 @@ void            test_ft_strnstr(void){
 	add_fun_subtest(test_ft_strnstr_electric_memory);
 	add_fun_subtest(test_ft_strnstr_null2);
 	add_fun_subtest(test_ft_strnstr_null1);
+	add_fun_subtest(test_ft_strnstr_romeu);
 	add_fun_subtest(test_ft_strnstr_speed);
 }
 
@@ -8976,6 +8995,6 @@ void		test_ft_strlcpy(void) {
 	add_fun_subtest(test_ft_strlcpy_overflow);
 	add_fun_subtest(test_ft_strlcpy_min);
 	add_fun_subtest(test_ft_strlcpy_zero);
-	add_fun_subtest(test_ft_strlcpy_zerosize);
 	add_fun_subtest(test_ft_strlcpy_null);
+	add_fun_subtest(test_ft_strlcpy_zerosize);
 }
