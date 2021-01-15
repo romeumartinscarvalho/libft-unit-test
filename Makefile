@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+         #
+#    By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created  2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2019/11/03 22:05:40 by tjans         ########   odam.nl          #
+#    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
+#    Updated: 2021/01/15 15:54:36 by rmartins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -242,6 +242,7 @@ f: libclean all
 	@rm -rf $(ASSETDIR)/$(ANAME)
 	@echo "\033[38;5;93mRUNNING TESTS:"
 	@./$(WRAPNAME) ${SPEED}
+	@rm $(LIBFTDIR)/libft.so
 
 b: libclean all
 	@rm -rf $(ASSETDIR)/$(ANAME)
