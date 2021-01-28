@@ -6,7 +6,7 @@
 /*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/01/14 00:07:04 by rmartins         ###   ########.fr       */
+/*   Updated: 2021/01/28 01:54:13 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4844,7 +4844,7 @@ void			test_ft_isalnum_(void *ptr) {
 	SANDBOX_RAISE(
 			int		i;
 			i = -1;
-			while (i < 530)
+			while (i < 256)
 			{
 				if (!!ft_isalnum(i) != !!isalnum(i))
 					exit(TEST_FAILED);
@@ -4923,8 +4923,8 @@ void			test_ft_toupper_(void *ptr) {
 
 	SANDBOX_RAISE(
 			int		i;
-			i = -100;
-			while (i < 530)
+			i = -1;
+			while (i < 256)
 			{
 				if (ft_toupper(i) != toupper(i)) {
 					SET_DIFF_CUSTOM("%12s: |%i|\n%12s: |%i|\nparam: (%i)", current_fun_name + 3, toupper(i), current_fun_name, ft_toupper(i), i)
@@ -4950,8 +4950,8 @@ void			test_ft_tolower_(void *ptr) {
 
 	SANDBOX_RAISE(
 			int		i;
-			i = -100;
-			while (i < 530)
+			i = -1;
+			while (i < 256)
 			{
 				if (ft_tolower(i) != tolower(i)) {
 					SET_DIFF_CUSTOM("%12s: |%i|\n%12s: |%i|\nparam: (%i)", current_fun_name + 3, tolower(i), current_fun_name, ft_tolower(i), i)
