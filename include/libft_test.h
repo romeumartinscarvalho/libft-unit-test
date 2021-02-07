@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_test.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created  2015/11/13 20:23:36 by alelievr          #+#    #+#             */
-/*   Updated: 2019/10/20 11:01:59 by juligonz         ###   ########.fr       */
+/*   Created: 2015/11/13 20:23:36 by alelievr          #+#    #+#             */
+/*   Updated: 2021/02/07 18:16:16 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -359,12 +359,19 @@ void            test_ft_lstmap(void);
 
 void			test_ft_islower(void);
 void			test_ft_isupper(void);
-void			test_ft_isnumber(void);
 void			test_ft_isblank(void);
 void			test_ft_strtrimc(void);
 void			test_ft_strndup(void);
 void			test_ft_atof(void);
 void			test_ft_strlcpy(void);
+
+/* additional */
+void			test_ft_ispunct(void);
+void			test_ft_iscntrl(void);
+void			test_ft_isgraph(void);
+void			test_ft_isxdigit(void);
+void			test_ft_isspace(void);
+
 
 /*	bench functions:  */
 void			bench_ft_memset(void);

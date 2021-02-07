@@ -6,7 +6,7 @@
 /*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/02/06 22:54:34 by rmartins         ###   ########.fr       */
+/*   Updated: 2021/02/07 18:16:01 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -8172,32 +8172,7 @@ void			test_ft_isupper(void) {
 	add_fun_subtest(test_ft_isupper_);
 }
 
-////////////////////////////////
-//         ft_isnumber         //
-////////////////////////////////
 
-#ifdef linux
-int				isnumber(char c) { const char *numbers="0123456789"; return strchr(numbers, c) != NULL; }
-#endif
-
-void			test_ft_isnumber_(void *ptr) {
-	typeof(isnumber)	*ft_isnumber = ptr;
-	SET_EXPLANATION("your isnumber does not work ...");
-
-	SANDBOX_RAISE(
-			for (int i = -50; i < 530; i++) {
-				if (!!ft_isnumber(i) != !!isnumber(i)) {
-					SET_DIFF_INT(isnumber(i), ft_isnumber(i));
-					exit(TEST_FAILED);
-				}
-			}
-			exit(TEST_SUCCESS);
-			);
-}
-
-void			test_ft_isnumber(void) {
-	add_fun_subtest(test_ft_isnumber_);
-}
 
 ////////////////////////////////
 //         ft_isblank         //
@@ -8221,6 +8196,124 @@ void			test_ft_isblank_(void *ptr) {
 void			test_ft_isblank(void) {
 	add_fun_subtest(test_ft_isblank_);
 }
+
+////////////////////////////////
+//         ft_ispunct         //
+////////////////////////////////
+
+void			test_ft_ispunct_(void *ptr) {
+	typeof(ispunct)	*ft_ispunct = ptr;
+	SET_EXPLANATION("your ispunct does not work ...");
+
+	SANDBOX_RAISE(
+			for (int i = 0; i < 257; i++) {
+				if (!!ft_ispunct(i) != !!ispunct(i)) {
+					SET_DIFF_INT(ispunct(i), ft_ispunct(i));
+					exit(TEST_FAILED);
+				}
+			}
+			exit(TEST_SUCCESS);
+			);
+}
+
+void			test_ft_ispunct(void) {
+	add_fun_subtest(test_ft_ispunct_);
+}
+
+////////////////////////////////
+//         ft_isgraph         //
+////////////////////////////////
+
+void			test_ft_isgraph_(void *ptr) {
+	typeof(isgraph)	*ft_isgraph = ptr;
+	SET_EXPLANATION("your isgraph does not work ...");
+
+	SANDBOX_RAISE(
+			for (int i = 0; i < 257; i++) {
+				if (!!ft_isgraph(i) != !!isgraph(i)) {
+					SET_DIFF_INT(isgraph(i), ft_isgraph(i));
+					exit(TEST_FAILED);
+				}
+			}
+			exit(TEST_SUCCESS);
+			);
+}
+
+void			test_ft_isgraph(void) {
+	add_fun_subtest(test_ft_isgraph_);
+}
+
+////////////////////////////////
+//         ft_isxdigit        //
+////////////////////////////////
+
+void			test_ft_isxdigit_(void *ptr) {
+	typeof(isxdigit)	*ft_isxdigit = ptr;
+	SET_EXPLANATION("your isxdigit does not work ...");
+
+	SANDBOX_RAISE(
+			for (int i = 0; i < 257; i++) {
+				if (!!ft_isxdigit(i) != !!isxdigit(i)) {
+					SET_DIFF_INT(isxdigit(i), ft_isxdigit(i));
+					exit(TEST_FAILED);
+				}
+			}
+			exit(TEST_SUCCESS);
+			);
+}
+
+void			test_ft_isxdigit(void) {
+	add_fun_subtest(test_ft_isxdigit_);
+}
+
+
+////////////////////////////////
+//         ft_isspace         //
+////////////////////////////////
+
+void			test_ft_isspace_(void *ptr) {
+	typeof(isspace)	*ft_isspace = ptr;
+	SET_EXPLANATION("your isspace does not work ...");
+
+	SANDBOX_RAISE(
+			for (int i = 0; i < 257; i++) {
+				if (!!ft_isspace(i) != !!isspace(i)) {
+					SET_DIFF_INT(isspace(i), ft_isspace(i));
+					exit(TEST_FAILED);
+				}
+			}
+			exit(TEST_SUCCESS);
+			);
+}
+
+void			test_ft_isspace(void) {
+	add_fun_subtest(test_ft_isspace_);
+}
+
+
+////////////////////////////////
+//         ft_iscntrl         //
+////////////////////////////////
+
+void			test_ft_iscntrl_(void *ptr) {
+	typeof(iscntrl)	*ft_iscntrl = ptr;
+	SET_EXPLANATION("your iscntrl does not work ...");
+
+	SANDBOX_RAISE(
+			for (int i = 0; i < 256; i++) {
+				if (!!ft_iscntrl(i) != !!iscntrl(i)) {
+					SET_DIFF_INT(iscntrl(i), ft_iscntrl(i));
+					exit(TEST_FAILED);
+				}
+			}
+			exit(TEST_SUCCESS);
+			);
+}
+
+void			test_ft_iscntrl(void) {
+	add_fun_subtest(test_ft_iscntrl_);
+}
+
 
 ////////////////////////////////
 //         ft_strtrimc         //
