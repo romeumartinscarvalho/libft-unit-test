@@ -6,7 +6,7 @@
 /*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/02/08 23:33:53 by rmartins         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:09:35 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -6701,6 +6701,21 @@ void			test_ft_split_null(void *ptr) {
 			)
 }
 
+void			test_ft_split_char_null(void *ptr) {
+	char	**(*ft_split)(char *, char) = ptr;
+	SET_EXPLANATION("your split does not work with char 0");
+	char	**expected = (char*[2]){"olol", NULL};
+
+	SANDBOX_RAISE(
+			char	*s = "olol";
+
+			char	**result = ft_split(s, 0);
+
+			split_cmp_array(expected, result);
+			);
+}
+
+
 void            test_ft_split(void) {
 	add_fun_subtest(test_ft_split_basic);
 	add_fun_subtest(test_ft_split_space);
@@ -6712,6 +6727,7 @@ void            test_ft_split(void) {
 	add_fun_subtest(test_ft_split_malloc_null);
 	add_fun_subtest(test_ft_split_zero);
 	add_fun_subtest(test_ft_split_null);
+	add_fun_subtest(test_ft_split_char_null);
 }
 
 ////////////////////////////////
