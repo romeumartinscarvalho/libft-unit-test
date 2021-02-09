@@ -6,12 +6,13 @@
 /*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/02/07 18:16:01 by rmartins         ###   ########.fr       */
+/*   Updated: 2021/02/08 23:33:53 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 #include <sys/mman.h>
+#include "malloc.h"
 
 #define		STRING_1	"the cake is a lie !\0I'm hidden lol\r\n"
 #define		STRING_4	"phrase differente pour le test"
@@ -3168,6 +3169,22 @@ void			test_ft_strchr_empty(void *ptr) {
 			);
 }
 
+void			test_ft_strchr_outofrange(void *ptr) {
+	typeof(strchr)	*ft_strchr = ptr;
+	SET_EXPLANATION("your strchr does not work overflow char");
+
+	SANDBOX_RAISE(
+			char	*src = "tripoli";
+
+			char	*d1 = strchr(src, 't' + 256);
+			char	*d2 = ft_strchr(src, 't' + 256);
+			if (d1 == d2)
+				exit(TEST_SUCCESS);
+			SET_DIFF(d1, d2);
+			exit(TEST_FAILED);
+			);
+}
+
 void			test_ft_strchr_electric_memory(void *ptr) {
 	typeof(strchr)	*ft_strchr = ptr;
 	SET_EXPLANATION("your strchr crash because it read too many bytes or attempt to write on s !");
@@ -3218,6 +3235,7 @@ void            test_ft_strchr(void){
 	add_fun_subtest(test_ft_strchr_after_0);
 	add_fun_subtest(test_ft_strchr_zero);
 	add_fun_subtest(test_ft_strchr_empty);
+	add_fun_subtest(test_ft_strchr_outofrange);
 	add_fun_subtest(test_ft_strchr_electric_memory);
 	add_fun_subtest(test_ft_strchr_null);
 	add_fun_subtest(test_ft_strchr_speed);
@@ -3323,6 +3341,22 @@ void			test_ft_strrchr_empty(void *ptr) {
 			);
 }
 
+void			test_ft_strrchr_outofrange(void *ptr) {
+	typeof(strrchr)	*ft_strrchr = ptr;
+	SET_EXPLANATION("your strrchr does not work overflow char");
+
+	SANDBOX_RAISE(
+			char	*src = "tripoli";
+
+			char	*d1 = strrchr(src, 't' + 256);
+			char	*d2 = ft_strrchr(src, 't' + 256);
+			if (d1 == d2)
+				exit(TEST_SUCCESS);
+			SET_DIFF(d1, d2);
+			exit(TEST_FAILED);
+			);
+}
+
 void			test_ft_strrchr_electric_memory(void *ptr) {
 	typeof(strrchr)	*ft_strrchr = ptr;
 	SET_EXPLANATION("your strrchr crash because it read too many bytes or attempt to write on s !");
@@ -3379,6 +3413,7 @@ void            test_ft_strrchr(void) {
 	add_fun_subtest(test_ft_strrchr_unicode);
 	add_fun_subtest(test_ft_strrchr_zero);
 	add_fun_subtest(test_ft_strrchr_empty);
+	add_fun_subtest(test_ft_strrchr_outofrange);
 	add_fun_subtest(test_ft_strrchr_electric_memory);
 	add_fun_subtest(test_ft_strrchr_null);
 	add_fun_subtest(test_ft_strrchr_speed);
@@ -6267,6 +6302,26 @@ void			test_ft_strjoin_null2(void *ptr) {
 			);
 }
 
+// void			test_ft_strjoin_malloc_size(void *ptr) {
+// 	char *	(*ft_strjoin)(char *, char *) = ptr;
+// 	SET_EXPLANATION("you allocated more memory than necessary");
+
+// 	SANDBOX_RAISE(
+// 			char	*s1 = strdup("where is my ");
+// 			char	*s2 = strdup("malloc");
+
+// 			char	*res = ft_strjoin(s2, s1);
+// 			printf("(%ld) = (%ld) + (%ld) + 1 | ", malloc_usable_size(res), malloc_usable_size(s1), malloc_usable_size(s2));
+// 			printf("%ld = %ld + %ld + 1", strlen(res), strlen(s1), strlen(s2));
+// 			// free(s1);
+// 			// free(s2);
+// 			if (malloc_usable_size(res) == strlen(s1) + strlen(s2) + 1)
+// 				exit(TEST_SUCCESS);
+// 			SET_DIFF_PTR(NULL, res);
+// 			exit(TEST_FAILED);
+// 			);
+// }
+
 void            test_ft_strjoin(void){
 	add_fun_subtest(test_ft_strjoin_basic);
 	add_fun_subtest(test_ft_strjoin_free);
@@ -6275,6 +6330,7 @@ void            test_ft_strjoin(void){
 	add_fun_subtest(test_ft_strjoin_zero);
 	add_fun_subtest(test_ft_strjoin_null1);
 	add_fun_subtest(test_ft_strjoin_null2);
+	//add_fun_subtest(test_ft_strjoin_malloc_size);
 }
 
 ////////////////////////////////
