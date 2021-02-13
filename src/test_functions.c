@@ -6,13 +6,13 @@
 /*   By: rmartins <rmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/02/09 14:09:35 by rmartins         ###   ########.fr       */
+/*   Updated: 2021/02/13 17:49:53 by rmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 #include <sys/mman.h>
-#include "malloc.h"
+// #include "malloc.h"
 
 #define		STRING_1	"the cake is a lie !\0I'm hidden lol\r\n"
 #define		STRING_4	"phrase differente pour le test"
